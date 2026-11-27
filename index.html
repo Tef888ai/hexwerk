@@ -43,6 +43,20 @@
   .bild .nr.lang { font-size: 11px; }
   .bild img.logo { height: 64px; margin-top: 8px; border-radius: 12px; }
   .bild img.logo.weiss { background: #fff; }
+  /* Breite Bildschirme: Karten je Abschnitt in Spalten (Alex 27.11.2026). Handy bleibt einspaltig. */
+  @media (min-width: 700px) {
+    main { max-width: 1200px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 10px; align-content: start; }
+    main > * { grid-column: 1 / -1; min-width: 0; }
+    main > a.produkt { grid-column: auto; }
+    a.produkt > div:not(.bild) { min-width: 0; }
+  }
+  @media (min-width: 1000px) { main { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  html { scroll-behavior: smooth; }
+  .inhalt { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .inhalt a { background: var(--karte); border: 1px solid var(--blau); border-radius: 999px; padding: 7px 14px; color: var(--hell); font-size: 14px; text-decoration: none; }
+  .inhalt a.alle { background: var(--gruen); border-color: var(--gruen); color: var(--navy); font-weight: 700; }
+  h2 { scroll-margin-top: 12px; }
+  h2 .hoch { float: right; color: var(--grau); font-size: 12px; font-weight: 400; letter-spacing: 0; text-transform: none; text-decoration: none; }
 </style>
 </head>
 <body>
@@ -51,13 +65,14 @@
     <img src="hw_logo.png" alt="HexWerk-Logo">
     <div><h1>Hex<span>Werk</span></h1><div class="unter">Fundstücke aus den Beiträgen – nach Nummer</div></div>
   </header>
+  <nav id="inhalt" class="inhalt" aria-label="Inhalt"><a class="alle" href="https://tef888ai.github.io/">Alle Bücher →</a><a href="#aus-den-trading-videos">TradingView</a><a href="#in-english-hexwerk-books">English books</a><a href="#en-espanol-hexwerk">Español</a><a href="#aktuell">Aktuell</a><a href="#geschenkideen-fuer-kinder">Kinder &amp; Geschenke</a><a href="#malen-statt-bildschirm">Malbücher</a><a href="#fuer-trader">Trading</a><a href="#haushaltsbuch-2027">Haushaltsbuch</a><a href="#abschalten-ohne-handy">Mandalas</a><a href="#raetseln-statt-scrollen">Rätsel</a><a href="#fuer-ausbilder">Ausbilder (AEVO)</a><a href="#fuer-lehrer">Lehrer</a><a href="#werkzeuge">Higgsfield &amp; ElevenLabs</a></nav>
 
   <p class="hinweis"><b>Werbung:</b> Die mit * gekennzeichneten Links sind Affiliate-Links. Kaufst du darüber ein, bekomme ich eine kleine Provision – für dich kostet es nichts extra. <b>Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</b> Links mit „HexWerk“ führen zu meinen eigenen Produkten.</p>
   <p class="hinweis"><b>HexWerk überall:</b> <a href="https://tef888ai.github.io/">Startseite</a> · <a href="https://www.youtube.com/@HexWerk">YouTube</a> · <a href="https://www.tiktok.com/@hexwerk_official">TikTok</a> · <a href="https://www.instagram.com/hexwerk_/">Instagram</a> · <a href="https://de.pinterest.com/HexWerkShop/">Pinterest</a> · <a href="https://hexwerk.etsy.com">Etsy-Shop</a><br><b>Kontakt und Kooperationen:</b> <a href="mailto:hexwerk.shop@proton.me">hexwerk.shop@proton.me</a></p>
-  <h2>Aus den Trading-Videos</h2>
+  <h2 id="aus-den-trading-videos">Aus den Trading-Videos<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://de.tradingview.com/pricing/?aff_id=1173396&amp;aff_sub=linkseite" rel="sponsored noopener" target="_blank">
     <div class="bild"><img class="logo" src="bilder/logo_tradingview.svg" alt="" width="64" height="80"><span class="nr">TV</span></div><div><div class="name">TradingView*</div><div class="info">Charts, Preisalarme und Papierhandel im Browser</div></div><div class="pfeil">›</div></a>
-  <h2>In English – HexWerk books</h2>
+  <h2 id="in-english-hexwerk-books">In English – HexWerk books<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.com/dp/B0HH4JPGPT" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HH4JPGPT.jpg" alt="" width="64" height="80"><span class="nr lang">EN1</span></div><div><div class="eigen">HexWerk</div><div class="name">Your First Trading Bot – Paperback</div><div class="info">Build a MetaTrader 5 trading bot with AI · amazon.com</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.com/dp/B0HGYD7GL3" rel="noopener" target="_blank">
@@ -76,10 +91,10 @@
     <div class="bild"><img src="bilder/B0HN4MQ8ZQ.jpg" alt="" width="64" height="80"><span class="nr lang">EN8</span></div><div><div class="eigen">HexWerk</div><div class="name">Christmas Coloring Book</div><div class="info">Paperback · 33 big, easy pictures · amazon.com</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.com/dp/B0HMG8KCV4" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HMG8KCV4.jpg" alt="" width="64" height="80"><span class="nr lang">EN9</span></div><div><div class="eigen">HexWerk</div><div class="name">Animal Coloring Book for Kids</div><div class="info">Paperback · 42 cute animals · amazon.com</div></div><div class="pfeil">›</div></a>
-  <h2>En español – HexWerk</h2>
+  <h2 id="en-espanol-hexwerk">En español – HexWerk<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.es/dp/B0HP8MR4VN" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HP8MR4VN.jpg" alt="" width="64" height="80"><span class="nr lang">ES1</span></div><div><div class="eigen">HexWerk</div><div class="name">Agenda de gastos 2027</div><div class="info">Tapa blanda · a todo color · amazon.es</div></div><div class="pfeil">›</div></a>
-  <h2>Aktuell</h2>
+  <h2 id="aktuell">Aktuell<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.de/shop/trustedpro05f/list/1XUR0VCYKLX9L" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/z_geschenk.svg" alt="" width="64" height="80"><span class="nr lang">XMAS</span></div><div><div class="eigen">Anzeige</div><div class="name">Weihnachtsgeschenke für Kinder*</div><div class="info">Meine Amazon-Liste · 12 Ideen: LEGO und DUPLO, Spiele, Adventskalender, Kuscheltier</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4606328622" rel="noopener" target="_blank">
@@ -88,7 +103,7 @@
     <div class="bild"><img src="bilder/z_spiel.svg" alt="" width="64" height="80"><span class="nr lang">GTA</span></div><div><div class="name">GTA 6 für PS5*</div><div class="info">Seit 19.11.2026 erhältlich · Box mit Code zum Herunterladen</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/hz/audible/mlp?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/z_hoeren.svg" alt="" width="64" height="80"><span class="nr lang">HÖR</span></div><div><div class="name">Hörbücher bei Audible*</div><div class="info">Hörbuch-Tipps aus den Videos · jeden Monat 1 Hörbuch</div></div><div class="pfeil">›</div></a>
-  <h2>Geschenkideen für Kinder</h2>
+  <h2 id="geschenkideen-fuer-kinder">Geschenkideen für Kinder<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.de/dp/B09TPRRSW7?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/z_stift.svg" alt="" width="64" height="80"><span class="nr">1</span></div><div><div class="name">tiptoi Stift*</div><div class="info">Lernspielzeug ab 2 · für tiptoi-Bücher und -Spiele (separat)</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B00NVDP3ZU?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
@@ -99,8 +114,6 @@
     <div class="bild"><img src="bilder/z_zehn.svg" alt="" width="64" height="80"><span class="nr">4</span></div><div><div class="name">Phase 10*</div><div class="info">Kartenspiel ab 7 · 2–6 Spieler</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4602222401" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/4602222401.jpg" alt="" width="64" height="80"><span class="nr">27</span></div><div><div class="eigen">HexWerk</div><div class="name">Stadt, Land, Fluss – Kinder-Edition</div><div class="info">PDF zum Ausdrucken bei Etsy · ab 8 Jahren · mit Buchstabenkarten und Urkunde</div></div><div class="pfeil">›</div></a>
-  <a class="produkt" href="https://www.amazon.de/dp/B0HPTKXYMN?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
-    <div class="bild"><img src="bilder/B0HPTKXYMN.jpg" alt="" width="64" height="80"><span class="nr">27</span></div><div><div class="eigen">HexWerk</div><div class="name">Stadt, Land, Fluss – Der Spielblock*</div><div class="info">als Taschenbuch bei Amazon · 66 Spielblätter · ab 8 Jahren</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0HPTKXYMN?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HPTKXYMN.jpg" alt="" width="64" height="80"><span class="nr">28</span></div><div><div class="eigen">HexWerk</div><div class="name">Stadt, Land, Fluss – Der Spielblock*</div><div class="info">Taschenbuch · 66 Spielblätter · ab 8 Jahren · mit Buchstabenkarten und Urkunde</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4606353580" rel="noopener" target="_blank">
@@ -121,14 +134,14 @@
     <div class="bild"><img src="bilder/4616284847.jpg" alt="" width="64" height="80"><span class="nr">36</span></div><div><div class="eigen">HexWerk</div><div class="name">Mein allererstes Malbuch</div><div class="info">PDF zum Ausdrucken bei Etsy · 50 große Ausmalbilder · ab 1 Jahr</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0HRNYGCN2?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HRNYGCN2.jpg" alt="" width="64" height="80"><span class="nr">36</span></div><div><div class="eigen">HexWerk</div><div class="name">Mein allererstes Malbuch – Taschenbuch*</div><div class="info">als Taschenbuch bei Amazon · 50 Ausmalbilder · ab 1 Jahr</div></div><div class="pfeil">›</div></a>
-  <h2>Malen statt Bildschirm</h2>
+  <h2 id="malen-statt-bildschirm">Malen statt Bildschirm<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.de/dp/B0HMG7FSGT?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HMG7FSGT.jpg" alt="" width="64" height="80"><span class="nr">7</span></div><div><div class="eigen">HexWerk</div><div class="name">Tiere-Malbuch*</div><div class="info">Taschenbuch · 42 Tiere · ab 3 Jahren</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4601759427" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/4601759427.jpg" alt="" width="64" height="80"><span class="nr">8</span></div><div><div class="eigen">HexWerk</div><div class="name">Tiere-Ausmalbilder</div><div class="info">PDF zum Ausdrucken bei Etsy · 42 Tiere</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0HMG7FSGT?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HMG7FSGT.jpg" alt="" width="64" height="80"><span class="nr">8</span></div><div><div class="eigen">HexWerk</div><div class="name">Tiere-Malbuch – Taschenbuch*</div><div class="info">als Taschenbuch bei Amazon · 42 Tiere · ab 3 Jahren</div></div><div class="pfeil">›</div></a>
-  <h2>Für Trader</h2>
+  <h2 id="fuer-trader">Für Trader<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.de/dp/B0H8J8FC18?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0H8J8FC18.jpg" alt="" width="64" height="80"><span class="nr">9</span></div><div><div class="eigen">HexWerk</div><div class="name">Trading Journal*</div><div class="info">Taschenbuch · 100 Trade-Seiten</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4601761601" rel="noopener" target="_blank">
@@ -151,7 +164,7 @@
     <div class="bild"><img src="bilder/zone-commander.png" alt="" width="64" height="80"><span class="nr">26</span></div><div><div class="eigen">HexWerk</div><div class="name">Zone Commander</div><div class="info">MT5-Trade-Manager bei MQL5 · jeder Trade mit eigener Nummer und Farbe</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.youtube.com/@HexWerk" rel="noopener" target="_blank">
     <div class="bild"><img src="hw_logo.png" alt="" width="64" height="80"><span class="nr">YT</span></div><div><div class="eigen">HexWerk</div><div class="name">HexWerk auf YouTube</div><div class="info">Ausführliche Erklärvideos zu den MetaTrader-5-Tools (Englisch)</div></div><div class="pfeil">›</div></a>
-  <h2>Haushaltsbuch 2027</h2>
+  <h2 id="haushaltsbuch-2027">Haushaltsbuch 2027<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.de/dp/B0HNGW56W7?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HNGW56W7.jpg" alt="" width="64" height="80"><span class="nr">12</span></div><div><div class="eigen">HexWerk</div><div class="name">Haushaltsbuch 2027*</div><div class="info">Taschenbuch · farbig · 94 Seiten</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4601567596" rel="noopener" target="_blank">
@@ -160,27 +173,27 @@
     <div class="bild"><img src="bilder/4601787646.jpg" alt="" width="64" height="80"><span class="nr">14</span></div><div><div class="eigen">HexWerk</div><div class="name">Haushaltsbuch PDF</div><div class="info">PDF zum Ausdrucken bei Etsy · A4 und A5</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0HNGW56W7?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HNGW56W7.jpg" alt="" width="64" height="80"><span class="nr">14</span></div><div><div class="eigen">HexWerk</div><div class="name">Haushaltsbuch 2027 – Taschenbuch*</div><div class="info">als Taschenbuch bei Amazon · farbig · 94 Seiten</div></div><div class="pfeil">›</div></a>
-  <h2>Abschalten ohne Handy</h2>
+  <h2 id="abschalten-ohne-handy">Abschalten ohne Handy<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.etsy.com/de/listing/4601760369" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/4601760369.jpg" alt="" width="64" height="80"><span class="nr">19</span></div><div><div class="eigen">HexWerk</div><div class="name">Mandalas</div><div class="info">PDF zum Ausdrucken bei Etsy · 30 Mandalas</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0HCJN61J5?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HCJN61J5.jpg" alt="" width="64" height="80"><span class="nr">19</span></div><div><div class="eigen">HexWerk</div><div class="name">Mandala Bliss – Taschenbuch*</div><div class="info">als Taschenbuch bei Amazon · 30 Mandalas · Titel auf Englisch</div></div><div class="pfeil">›</div></a>
-  <h2>Rätseln statt Scrollen</h2>
+  <h2 id="raetseln-statt-scrollen">Rätseln statt Scrollen<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.etsy.com/de/listing/4601786550" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/4601786550.jpg" alt="" width="64" height="80"><span class="nr">20</span></div><div><div class="eigen">HexWerk</div><div class="name">Rätselbuch</div><div class="info">PDF zum Ausdrucken bei Etsy · 45 Rätsel</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0H4J73QCM?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0H4J73QCM.jpg" alt="" width="64" height="80"><span class="nr">20</span></div><div><div class="eigen">HexWerk</div><div class="name">Brain Games – Taschenbuch*</div><div class="info">englische Ausgabe bei Amazon · 45 Rätsel mit Lösungen</div></div><div class="pfeil">›</div></a>
-  <h2>Für Ausbilder</h2>
+  <h2 id="fuer-ausbilder">Für Ausbilder<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.amazon.de/dp/B0HQX5THNC?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HQX5THNC.jpg" alt="" width="64" height="80"><span class="nr">33</span></div><div><div class="eigen">HexWerk</div><div class="name">AEVO Prüfungstrainer*</div><div class="info">Taschenbuch bei Amazon · 240 Fragen mit erklärten Lösungen · 3 Probeprüfungen</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.etsy.com/de/listing/4615705426" rel="noopener" target="_blank">
     <div class="bild"><img src="bilder/4615705426.jpg" alt="" width="64" height="80"><span class="nr">35</span></div><div><div class="eigen">HexWerk</div><div class="name">AEVO-Lernkarten</div><div class="info">PDF bei Etsy · 180 Karten mit Fundstelle · zum Ausdrucken und fürs Tablet</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://www.amazon.de/dp/B0HRHWNQLJ?tag=hexwerkinsta-21" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/B0HRHWNQLJ.jpg" alt="" width="64" height="80"><span class="nr">35</span></div><div><div class="eigen">HexWerk</div><div class="name">AEVO-Lernkarten – Kindle*</div><div class="info">als Kindle-E-Book bei Amazon · 180 Karten</div></div><div class="pfeil">›</div></a>
-  <h2>Für Lehrer</h2>
+  <h2 id="fuer-lehrer">Für Lehrer<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://www.awin1.com/cread.php?awinmid=130797&amp;awinaffid=3136140&amp;ued=https%3A%2F%2Fcreator.persen.de%2Fsmart%2Fcreator" rel="sponsored noopener" target="_blank">
     <div class="bild"><img src="bilder/z_blatt.svg" alt="" width="64" height="80"><span class="nr">34</span></div><div><div class="eigen">Anzeige</div><div class="name">PERSEN smart Creator*</div><div class="info">Über 4.000 geprüfte Arbeitsblätter · Deutsch, Mathe, Englisch, Sachunterricht · Grundschule und Sek I · kostenlos ausprobieren</div></div><div class="pfeil">›</div></a>
-  <h2>Werkzeuge</h2>
+  <h2 id="werkzeuge">Werkzeuge<a class="hoch" href="#inhalt">↑ nach oben</a></h2>
   <a class="produkt" href="https://higgsfield.ai?fpr=alexander-81b091" rel="sponsored noopener" target="_blank">
     <div class="bild"><img class="logo" src="bilder/logo_higgsfield.png" alt="" width="64" height="80"><span class="nr">KI</span></div><div><div class="eigen">Anzeige</div><div class="name">KI-Videos erstellen: Higgsfield*</div><div class="info">KI-Videos aus Bildern und Text erstellen · im Browser</div></div><div class="pfeil">›</div></a>
   <a class="produkt" href="https://try.elevenlabs.io/c0zo1h4fdc42" rel="sponsored noopener" target="_blank">
